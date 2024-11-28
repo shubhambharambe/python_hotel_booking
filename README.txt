@@ -1,6 +1,3 @@
-# python_hotel_booking
-Python DRF Hotel booking REST API app
-
 1) user is able to login and JWT token generated
 2) List of hotels we can get through
 3) user is able to book the hotel with the help of JWT token
