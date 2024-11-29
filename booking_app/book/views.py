@@ -6,6 +6,11 @@ from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
 from rest_framework.exceptions import PermissionDenied
 from django.contrib.auth.models import User
 from .serializers import UserCreateSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status, permissions
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 class HotelListCreateView(generics.ListCreateAPIView):
     queryset = Hotel.objects.all()
@@ -77,3 +82,14 @@ class RoomListCreateView(generics.ListCreateAPIView):
 class UserCreateView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserCreateSerializer
+class ChangePasswordView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        form = PasswordChangeForm(user=request.user, data=request.data)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Keep the user logged in after password change
+            return Response({"message": "Password updated successfully!"}, status=status.HTTP_200_OK)
+        else:
+            return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)

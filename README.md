@@ -9,8 +9,9 @@ Python DRF Hotel booking REST API app
 6)throttling concept add in your application
 7)only super user can see the list of user 
 8)only super user can add room for available hotels 
-9)Any one can register user to book hotels
-
+9)Anyone can register as a user to book hotels.
+10)Users should be able to change their password by providing their old password.
+11)Users should be able to use the "Forgot Password" functionality to receive a reset password link via email.
 ======================================>Add readme<===================================================
 
 ===============================>add instructions of to start application<============================

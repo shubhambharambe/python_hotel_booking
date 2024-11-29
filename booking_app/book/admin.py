@@ -6,7 +6,7 @@ from .models import Hotel, Room, Booking
 
 @admin.register(Hotel)
 class HotelAdmin(admin.ModelAdmin):
-    list_display = ('id','name', 'location','description','Amenities','hotel_rules','available_rooms_count','created_at')  # Display these fields in the admin list view
+    list_display = ('id','name', 'location','description','Amenities','hotel_rules','delux_rooms_count','semidelux_room_count','created_at')  # Display these fields in the admin list view
     search_fields = ('name', 'location')  # Enable search by these fields
     list_filter = ('created_at',)  # Enable filtering by creation date
 
