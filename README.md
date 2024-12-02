@@ -12,6 +12,7 @@ Python DRF Hotel booking REST API app
 9)Anyone can register as a user to book hotels.
 10)Users should be able to change their password by providing their old password.
 11)Users should be able to use the "Forgot Password" functionality to receive a reset password link via email.
+12) user  and admi should get booking notifications mail on mail id
 ======================================>Add readme<===================================================
 
 ===============================>add instructions of to start application<============================
